@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-adsense-account" content="ca-pub-0111543436976557">
-    <title>FunkyIQ — AI Sports Intelligence</title>
-    <meta name="description" content="FunkyIQ is an AI-powered sports intelligence platform delivering cutting-edge predictions and insights." />
+    <title>FunkyIQ — Predictive AI Technology</title>
+    <meta name="description" content="FunkyIQ builds proprietary predictive AI systems that turn complex data into high-confidence decisions." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -30,7 +30,6 @@
         overflow-x: hidden;
       }
 
-      /* Animated background grid */
       body::before {
         content: '';
         position: fixed;
@@ -43,7 +42,6 @@
         z-index: 0;
       }
 
-      /* Glow orbs */
       .orb {
         position: fixed;
         border-radius: 50%;
@@ -68,7 +66,6 @@
         to   { transform: translate(40px, 40px); }
       }
 
-      /* Layout */
       .wrapper {
         position: relative;
         z-index: 1;
@@ -77,7 +74,6 @@
         padding: 0 24px;
       }
 
-      /* Nav */
       nav {
         padding: 28px 0 0;
         display: flex;
@@ -105,7 +101,6 @@
         background: rgba(59,130,246,0.08);
       }
 
-      /* Hero */
       .hero {
         padding: 100px 0 80px;
         text-align: center;
@@ -163,42 +158,7 @@
         margin: 0 auto 44px;
         font-weight: 400;
       }
-      .cta-row {
-        display: flex;
-        gap: 14px;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      .btn-primary {
-        display: inline-block;
-        padding: 14px 32px;
-        background: var(--gold);
-        color: #0a0d14;
-        font-family: 'Outfit', sans-serif;
-        font-weight: 700;
-        font-size: 0.95rem;
-        border-radius: 8px;
-        text-decoration: none;
-        letter-spacing: 0.02em;
-        transition: opacity 0.2s, transform 0.2s;
-      }
-      .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-      .btn-secondary {
-        display: inline-block;
-        padding: 14px 32px;
-        background: transparent;
-        color: var(--text);
-        font-family: 'Outfit', sans-serif;
-        font-weight: 600;
-        font-size: 0.95rem;
-        border-radius: 8px;
-        text-decoration: none;
-        border: 1px solid var(--border);
-        transition: border-color 0.2s, transform 0.2s;
-      }
-      .btn-secondary:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-1px); }
 
-      /* Stats strip */
       .stats {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -230,7 +190,6 @@
         text-transform: uppercase;
       }
 
-      /* Features */
       .section-label {
         font-size: 0.75rem;
         font-weight: 600;
@@ -276,7 +235,6 @@
         line-height: 1.65;
       }
 
-      /* CTA band */
       .cta-band {
         background: var(--bg-card);
         border: 1px solid var(--border);
@@ -306,8 +264,21 @@
         margin-bottom: 32px;
         font-size: 1rem;
       }
+      .btn-primary {
+        display: inline-block;
+        padding: 14px 32px;
+        background: var(--gold);
+        color: #0a0d14;
+        font-family: 'Outfit', sans-serif;
+        font-weight: 700;
+        font-size: 0.95rem;
+        border-radius: 8px;
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        transition: opacity 0.2s, transform 0.2s;
+      }
+      .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
 
-      /* Footer */
       footer {
         border-top: 1px solid var(--border);
         padding: 28px 0;
@@ -336,79 +307,75 @@
     <div class="wrapper">
       <nav>
         <a href="/" class="logo">Funky<span>IQ</span></a>
-        <span class="badge">AI Powered</span>
+        <span class="badge">Predictive AI</span>
       </nav>
 
       <section class="hero">
-        <div class="hero-eyebrow">Sports Intelligence Redefined</div>
-        <h1>The <em>Smartest</em><br>Way to Follow Sport</h1>
-        <p>FunkyIQ harnesses machine learning, real-time data, and proprietary pattern recognition to deliver predictions that go far beyond the obvious.</p>
-        <div class="cta-row">
-          <a href="https://nrl-footy-predictions.funkyiq.com" class="btn-primary">NRL Predictions</a>
-          <a href="https://nrl-footy-predictions.funkyiq.com/about" class="btn-secondary">How It Works</a>
-        </div>
+        <div class="hero-eyebrow">Next-Generation Prediction Technology</div>
+        <h1>AI That<br><em>Sees Further</em></h1>
+        <p>FunkyIQ builds proprietary predictive AI systems that synthesise complex, high-dimensional data into clear, high-confidence decisions — faster and more accurately than conventional models.</p>
       </section>
 
       <div class="stats">
+        <div class="stat">
+          <div class="stat-value">10M+</div>
+          <div class="stat-label">Data Points Processed</div>
+        </div>
         <div class="stat">
           <div class="stat-value">68%</div>
           <div class="stat-label">Prediction Accuracy</div>
         </div>
         <div class="stat">
-          <div class="stat-value">5000+</div>
-          <div class="stat-label">Matches Analysed</div>
-        </div>
-        <div class="stat">
-          <div class="stat-value">17</div>
-          <div class="stat-label">NRL Teams Tracked</div>
+          <div class="stat-value">Real‑Time</div>
+          <div class="stat-label">Live Model Updates</div>
         </div>
       </div>
 
-      <div class="section-label">Why FunkyIQ</div>
-      <div class="section-title">Intelligence That<br>Wins More Often</div>
+      <div class="section-label">Our Technology</div>
+      <div class="section-title">Built Different.<br>Performs Different.</div>
 
       <div class="features">
         <div class="feature-card">
           <div class="feature-icon">🧠</div>
-          <div class="feature-title">Proprietary AI Engine</div>
-          <div class="feature-desc">Our multi-layered model synthesises ELO ratings, form, lineups, and historical head-to-head data that traditional systems miss entirely.</div>
+          <div class="feature-title">Proprietary ML Engine</div>
+          <div class="feature-desc">Our multi-layered model architecture captures non-linear relationships and hidden signals that standard statistical approaches miss entirely.</div>
         </div>
         <div class="feature-card">
           <div class="feature-icon">⚡</div>
-          <div class="feature-title">Real-Time Intelligence</div>
-          <div class="feature-desc">Predictions update automatically with live data right up to kickoff — injury news, weather, and team changes all factored in.</div>
+          <div class="feature-title">Real-Time Inference</div>
+          <div class="feature-desc">Models update continuously as new data arrives — predictions always reflect the most current state of the world, not a snapshot from hours ago.</div>
         </div>
         <div class="feature-card">
           <div class="feature-icon">📈</div>
-          <div class="feature-title">Continuously Learning</div>
-          <div class="feature-desc">The engine evolves week by week, self-correcting based on outcomes and refining its understanding of what drives results.</div>
+          <div class="feature-title">Self-Improving Models</div>
+          <div class="feature-desc">Every outcome feeds back into the system. The engine recalibrates continuously, compounding its accuracy advantage over time.</div>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🔍</div>
-          <div class="feature-title">Deep Form Analysis</div>
-          <div class="feature-desc">Every prediction is backed by thousands of data points — margin trends, home/away splits, fatigue, and travel distance.</div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🏉</div>
-          <div class="feature-title">NRL Specialist</div>
-          <div class="feature-desc">Built from the ground up for rugby league. No generic sports model — every signal is tuned specifically for the NRL competition.</div>
+          <div class="feature-title">Deep Feature Synthesis</div>
+          <div class="feature-desc">Thousands of raw signals are distilled into a compact set of high-signal features — removing noise, retaining predictive power.</div>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🎯</div>
-          <div class="feature-title">Confidence Ratings</div>
-          <div class="feature-desc">Every tip comes with a confidence score so you know when the model is certain and when it's a genuine coin flip.</div>
+          <div class="feature-title">Calibrated Confidence</div>
+          <div class="feature-desc">Every prediction carries a calibrated probability score — so you always know how certain the model is, and when to act on it.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <div class="feature-title">Multi-Source Data Fusion</div>
+          <div class="feature-desc">Structured data, unstructured text, and real-time feeds are unified into a single coherent model input — no signal left behind.</div>
         </div>
       </div>
 
       <div class="cta-band">
-        <h2>Ready to Tip Smarter?</h2>
-        <p>Get AI-powered NRL predictions for every round — free, every week.</p>
-        <a href="https://nrl-footy-predictions.funkyiq.com" class="btn-primary">View This Week's Predictions</a>
+        <h2>See FunkyIQ in Action</h2>
+        <p>Explore our live predictive AI platform — generating real predictions in real time.</p>
+        <a href="https://nrl-footy-predictions.funkyiq.com" class="btn-primary">View Live Predictions</a>
       </div>
 
       <footer>
-        <p>© 2026 FunkyIQ. For entertainment purposes only.</p>
-        <p>Built with AI. Powered by data.</p>
+        <p>© 2026 FunkyIQ. All rights reserved.</p>
+        <p>Powered by proprietary AI.</p>
       </footer>
     </div>
   </body>
