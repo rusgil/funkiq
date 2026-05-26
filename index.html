@@ -275,6 +275,22 @@
         margin-bottom: 20px;
         align-self: flex-start;
       }
+      .product-soon {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #f5c842;
+        border: 1px solid rgba(245,200,66,0.3);
+        background: rgba(245,200,66,0.08);
+        padding: 3px 10px;
+        border-radius: 100px;
+        display: inline-block;
+        margin-bottom: 20px;
+        align-self: flex-start;
+      }
+      .product-card.coming-soon { opacity: 0.75; }
+      .product-card.coming-soon:hover { transform: none; cursor: default; }
       .product-icon {
         font-size: 2.2rem;
         margin-bottom: 14px;
@@ -406,6 +422,19 @@
           <div class="product-title">NRL Footy Predictions</div>
           <div class="product-desc">Match-by-match win probabilities for every NRL game. Multi-signal model synthesising team form, head-to-head history, venue, and injury data into a single ranked prediction.</div>
           <a href="https://nrl-footy-predictions.funkyiq.com" class="btn-primary">View Predictions</a>
+        </div>
+        <div class="product-card">
+          <span class="product-live">Live</span>
+          <div class="product-icon">🐎</div>
+          <div class="product-title">Horse Racing Predictions</div>
+          <div class="product-desc">Pre-race win probabilities for every Australian thoroughbred race. 36-signal model covering form, class, barrier, weight, jockey, trainer, and track conditions — with value overlays against the market.</div>
+          <a href="https://horse-racing-predictions.funkyiq.com" class="btn-primary">View Predictions</a>
+        </div>
+        <div class="product-card coming-soon">
+          <span class="product-soon">Coming Soon</span>
+          <div class="product-icon">🏠</div>
+          <div class="product-title">Real Estate Predictions</div>
+          <div class="product-desc">Suburb-level price movement forecasts and property valuation signals. Combining macroeconomic data, sales history, and local supply metrics into actionable market intelligence.</div>
         </div>
       </div>
 
