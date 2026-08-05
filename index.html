@@ -386,10 +386,112 @@
         color: var(--muted);
       }
 
+      /* ── Long-form editorial content ── */
+      .content {
+        margin-bottom: 80px;
+        scroll-margin-top: 24px;
+      }
+      .content .section-title { margin-bottom: 24px; }
+      .prose { max-width: 680px; }
+      .prose p {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+      .prose p strong { color: var(--text); font-weight: 600; }
+      .prose h3 {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--text);
+        margin: 34px 0 12px;
+        letter-spacing: 0.01em;
+      }
+      .prose ul { list-style: none; margin: 0 0 18px; padding: 0; }
+      .prose ul li {
+        position: relative;
+        padding-left: 22px;
+        margin-bottom: 10px;
+        font-size: 0.98rem;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+      .prose ul li::before {
+        content: '';
+        position: absolute;
+        left: 0; top: 11px;
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+      }
+      .prose ul li strong { color: var(--text); font-weight: 600; }
+
+      /* Glossary */
+      .glossary {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+      }
+      .term {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px 22px;
+      }
+      .term dt {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--gold);
+        margin-bottom: 6px;
+        letter-spacing: 0.01em;
+      }
+      .term dd {
+        font-size: 0.9rem;
+        line-height: 1.65;
+        color: var(--muted);
+      }
+
+      /* FAQ */
+      .faq-item {
+        border-top: 1px solid var(--border);
+        padding: 22px 0;
+      }
+      .faq-item:last-child { border-bottom: 1px solid var(--border); }
+      .faq-q {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: var(--text);
+        margin-bottom: 10px;
+        letter-spacing: 0.01em;
+      }
+      .faq-a {
+        font-size: 0.96rem;
+        line-height: 1.75;
+        color: var(--muted);
+        max-width: 680px;
+      }
+
+      /* Responsible-gambling callout */
+      .rg {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--gold);
+        border-radius: 12px;
+        padding: 26px 28px;
+        margin-bottom: 40px;
+      }
+      .rg p { font-size: 0.9rem; line-height: 1.75; color: var(--muted); margin-bottom: 10px; }
+      .rg p:last-child { margin-bottom: 0; }
+      .rg strong { color: var(--text); }
+
       @media (max-width: 600px) {
         .stats { grid-template-columns: 1fr; }
         .cta-band { padding: 40px 24px; }
         footer { flex-direction: column; text-align: center; }
+        .prose p, .faq-a { font-size: 0.95rem; }
       }
     </style>
   </head>
@@ -405,8 +507,8 @@
 
       <section class="hero">
         <div class="hero-eyebrow">Next-Generation Prediction Technology</div>
-        <h1>AI That<br><em>Sees Further</em></h1>
-        <p>FunkyIQ builds proprietary predictive AI systems that synthesise complex, high-dimensional data into clear, high-confidence decisions — faster and more accurately than conventional models.</p>
+        <h1>Predictive AI for<br><em>Racing &amp; NRL</em></h1>
+        <p>FunkyIQ builds proprietary predictive AI systems that synthesise complex, high-dimensional data into clear, high-confidence decisions — faster and smarter than conventional models.</p>
       </section>
 
       <div class="section-label">Live Products</div>
@@ -486,9 +588,136 @@
         </div>
       </div>
 
+      <!-- ─────────────  HOW OUR AI WORKS  ───────────── -->
+      <section class="content" id="how-it-works">
+        <div class="section-label">Methodology</div>
+        <div class="section-title">How Our AI Works</div>
+        <div class="prose">
+          <p>Every FunkyIQ prediction engine is built on the same principle: no single number tells the whole story, so we don't rely on one. Each engine synthesises dozens of independent signals per outcome — and weights each signal by how much predictive power it has actually demonstrated on historical results, not by intuition. As real-world outcomes arrive, those weights are recalibrated, so the model that makes today's predictions is a slightly sharper version of yesterday's.</p>
+
+          <h3>Model versus market</h3>
+          <p>A prediction is only interesting if it disagrees with the crowd. For every selection, the model calculates its own <strong>implied probability</strong> and compares it to the probability baked into the current market price. When the two line up, there's no edge to act on. When the model rates an outcome materially higher than the market does, that gap — what we call the <strong>Edge</strong> — is surfaced explicitly, so you can see not just what the model likes, but where it thinks the market is wrong.</p>
+
+          <h3>Calibrated confidence</h3>
+          <p>A 70% prediction should be right about 70% of the time. That property — calibration — is what separates a probability you can act on from a number that merely looks confident. FunkyIQ grades every prediction with a calibrated confidence score and sorts outcomes into clear tiers, so you always know how much conviction sits behind a pick and when it's worth backing.</p>
+
+          <h3>Always learning</h3>
+          <p>The engines never stop running. Behind the scenes they continuously ingest fresh results, re-fit their patterns, and re-check their own calibration. The predictions you see reflect everything the system learned from the last outcome — not a snapshot frozen weeks ago.</p>
+        </div>
+      </section>
+
+      <!-- ─────────────  HORSE RACING  ───────────── -->
+      <section class="content" id="horse-racing">
+        <div class="section-label">Product · Live</div>
+        <div class="section-title">Horse Racing Predictions</div>
+        <div class="prose">
+          <p>FunkyIQ scans <strong>every Australian thoroughbred race</strong>, every day, and processes millions of data points to rank each field and surface the races where the model holds a genuine edge over the market. One engine drives five distinct views, each tuned for a different style of play.</p>
+
+          <h3>What the model reads</h3>
+          <ul>
+            <li><strong>Form</strong> — recent finishing positions, beaten margins, and class of racing, weighted so that a horse's latest runs count for more than its older ones.</li>
+            <li><strong>Connections</strong> — jockey and trainer records, and how particular combinations perform in comparable conditions.</li>
+            <li><strong>Breeding</strong> — pedigree signals that indicate a horse's aptitude for a distance, surface, or track condition.</li>
+            <li><strong>Race conditions</strong> — distance, track, barrier draw, and the going (track condition), which can reshape a race entirely.</li>
+            <li><strong>Market behaviour</strong> — the current price and how it's moving, used as a benchmark to measure the model against rather than a signal to follow.</li>
+          </ul>
+
+          <h3>Five views, one engine</h3>
+          <ul>
+            <li><strong>The Lounge</strong> — every Australian race today, ranked top to bottom with a win and place percentage for each runner. The foundation the other views drill into.</li>
+            <li><strong>The Edge</strong> — high-confidence picks compared directly against market odds, highlighting where the model most disagrees with the bookmakers.</li>
+            <li><strong>Hot Seat</strong> — a live race-card view sorted by jump time, built for tracking what's worth backing right now.</li>
+            <li><strong>Playbook</strong> — the day's lower-variance shortlist, distilled into a handful of concrete plays.</li>
+            <li><strong>Labs</strong> — a paper-trading sandbox that grades exotic strategies against real dividends, with a full ledger and ROI tracking.</li>
+          </ul>
+
+          <h3>Confidence tiers</h3>
+          <p>The model's top pick in each race is graded by how much win probability it carries. <strong>Premium</strong> is the rarest: strong model conviction meeting a market that's underpricing the horse. <strong>Hot</strong> covers the model's highest-conviction races, <strong>High Confidence</strong> the next band down, and <strong>Strong</strong> the broadest tier where there's a clear top pick with meaningful separation from the rest of the field.</p>
+        </div>
+      </section>
+
+      <!-- ─────────────  NRL FOOTY  ───────────── -->
+      <section class="content" id="nrl-footy">
+        <div class="section-label">Product · Live</div>
+        <div class="section-title">NRL Footy Predictions</div>
+        <div class="prose">
+          <p>FunkyIQ produces a <strong>match-by-match win probability for every NRL game</strong>. The engine weighs both sides of a fixture and returns a calibrated probability for each team, alongside the model's ranked call on the result.</p>
+
+          <h3>What the model reads</h3>
+          <ul>
+            <li><strong>Team form</strong> — recent results, margins, and the quality of opposition each side has faced.</li>
+            <li><strong>Head-to-head history</strong> — how these two teams have matched up, beyond raw ladder position.</li>
+            <li><strong>Venue and home ground</strong> — the measurable effect of where a match is played, including home-ground advantage.</li>
+            <li><strong>Travel and rest</strong> — the schedule around a fixture: short turnarounds, byes, and interstate travel.</li>
+            <li><strong>Team-list changes</strong> — squad and availability news that shifts a side's strength going into kickoff.</li>
+            <li><strong>Market prices</strong> — the head-to-head market, used as the benchmark the model is measured against.</li>
+          </ul>
+          <p>As with racing, each prediction is calibrated and continuously refreshed as new results come in, so the numbers reflect the current state of the competition rather than a preseason guess.</p>
+        </div>
+      </section>
+
+      <!-- ─────────────  GLOSSARY  ───────────── -->
+      <section class="content" id="glossary">
+        <div class="section-label">Reference</div>
+        <div class="section-title">Key Terms, Explained</div>
+        <dl class="glossary">
+          <div class="term"><dt>Win Probability</dt><dd>The model's estimate of how likely an outcome is, expressed as a percentage. A field's win probabilities always sum to 100%.</dd></div>
+          <div class="term"><dt>Calibration</dt><dd>The quality that makes a probability trustworthy: over many predictions, outcomes rated 40% should happen about 40% of the time.</dd></div>
+          <div class="term"><dt>Market-Implied Probability</dt><dd>The chance a price implies, calculated as 1 divided by the decimal odds. A $4 runner implies a 25% chance.</dd></div>
+          <div class="term"><dt>Edge (Overlay)</dt><dd>The gap between the model's probability and the market-implied probability. A positive edge means the model rates the outcome higher than the price does.</dd></div>
+          <div class="term"><dt>Place</dt><dd>A finish in the paying positions — typically the top three in larger fields, top two in smaller ones. A place bet wins if the runner places.</dd></div>
+          <div class="term"><dt>Starting Price (SP)</dt><dd>The odds on a runner at the moment the race jumps — the standard reference price for settling and comparison.</dd></div>
+          <div class="term"><dt>Barrier Draw</dt><dd>The starting gate a horse is allocated. Inside and outside draws can materially help or hurt depending on distance and track.</dd></div>
+          <div class="term"><dt>Track Condition (Going)</dt><dd>The state of the racing surface, rated from Firm through Good, Soft and Heavy. It changes how a race is likely to be run.</dd></div>
+          <div class="term"><dt>Quinella</dt><dd>An exotic bet requiring you to pick the first two runners home in either order.</dd></div>
+          <div class="term"><dt>Trifecta</dt><dd>An exotic bet requiring the first three runners home in the correct order.</dd></div>
+          <div class="term"><dt>First Four</dt><dd>An exotic bet requiring the first four runners home in the correct order.</dd></div>
+          <div class="term"><dt>Head-to-Head</dt><dd>In footy, the market on which of the two teams wins the match outright — the simplest form of the bet.</dd></div>
+          <div class="term"><dt>Confidence Tier</dt><dd>FunkyIQ's grade for how much conviction sits behind a top pick, from Strong up to Premium.</dd></div>
+        </dl>
+      </section>
+
+      <!-- ─────────────  FAQ  ───────────── -->
+      <section class="content" id="faq">
+        <div class="section-label">Questions</div>
+        <div class="section-title">Frequently Asked</div>
+
+        <div class="faq-item">
+          <div class="faq-q">What is FunkyIQ?</div>
+          <div class="faq-a">FunkyIQ builds proprietary AI prediction engines. Two are live today — NRL footy and Australian horse racing — each turning large, messy datasets into ranked, calibrated win probabilities you can read at a glance.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How accurate are the predictions?</div>
+          <div class="faq-a">The engines are designed to be well-calibrated, meaning a stated probability should hold up over a large sample of predictions. No model is a crystal ball — sport and racing are inherently uncertain, and any single result can go either way. We track performance openly on the product sites.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is this betting or financial advice?</div>
+          <div class="faq-a">No. FunkyIQ is an informational tool that provides statistical modelling and probabilities. It does not guarantee outcomes or profitability, and nothing here is financial advice. Any betting decision is your own.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How often do the predictions update?</div>
+          <div class="faq-a">Continuously. Models re-run as new data arrives — form, results, prices and team news — so the predictions reflect the latest available information rather than a fixed snapshot.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Where do I see the predictions?</div>
+          <div class="faq-a">Each engine has its own site: the horse racing predictions and NRL footy predictions links above take you straight to the live product.</div>
+        </div>
+      </section>
+
+      <!-- ─────────────  RESPONSIBLE GAMBLING  ───────────── -->
+      <section class="content" id="responsible">
+        <div class="section-label">Play Safe</div>
+        <div class="section-title">Responsible Gambling</div>
+        <div class="rg">
+          <p>FunkyIQ provides statistical predictions for <strong>informational purposes only</strong>. Past model performance is not a reliable indicator of future results, and no prediction eliminates the inherent risk in betting.</p>
+          <p>Betting is for adults <strong>18 and over</strong>. Only ever stake what you can afford to lose. If gambling is causing you harm, free and confidential help is available.</p>
+          <p><strong>Gambler's Help / GambleAware — 1800 858 858.</strong> Think! Before you bet.</p>
+        </div>
+      </section>
+
       <footer>
-        <p>© 2026 FunkyIQ. All rights reserved.</p>
-        <p>Powered by AI driven proprietary predictive models.</p>
+        <p>© 2026 FunkyIQ. All rights reserved. · <a href="https://horse-racing-predictions.funkyiq.com" style="color:var(--muted)">Horse Racing</a> · <a href="https://nrl-footy-predictions.funkyiq.com" style="color:var(--muted)">NRL Footy</a></p>
+        <p>Predictions are for informational purposes only · 18+ · Gamble responsibly · 1800 858 858</p>
       </footer>
     </div>
   </body>
