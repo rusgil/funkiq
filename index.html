@@ -487,6 +487,43 @@
       .rg p:last-child { margin-bottom: 0; }
       .rg strong { color: var(--text); }
 
+      /* ── Product detail tabs ── */
+      .prod-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .prod-tab {
+        flex: 1;
+        min-width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 16px 20px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        color: var(--muted);
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        transition: border-color 0.2s, color 0.2s, background 0.2s;
+      }
+      .prod-tab .t-ico { font-size: 1.5rem; }
+      .prod-tab:hover { border-color: rgba(255,255,255,0.18); color: var(--text); }
+      .prod-tab.active {
+        color: #0a0d14;
+        background: var(--gold);
+        border-color: var(--gold);
+      }
+      .prod-panel { display: none; }
+      .prod-panel.active { display: block; animation: fadeIn 0.25s ease; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
       @media (max-width: 600px) {
         .stats { grid-template-columns: 1fr; }
         .cta-band { padding: 40px 24px; }
@@ -535,6 +572,65 @@
           <div class="product-desc">Suburb-level price movement forecasts and property valuation signals. Combining macroeconomic data, sales history, and local supply metrics into actionable market intelligence.</div>
         </div>
       </div>
+
+      <!-- ─────────────  PRODUCT DETAIL TABS  ───────────── -->
+      <section class="content" id="explore" style="margin-bottom:80px;">
+        <div class="section-label">Explore The Engines</div>
+        <div class="section-title">A Closer Look</div>
+
+        <div class="prod-tabs" role="tablist">
+          <button class="prod-tab active" role="tab" aria-selected="true" aria-controls="panel-horse" data-tab="horse"><span class="t-ico">🐎</span> Horse Racing</button>
+          <button class="prod-tab" role="tab" aria-selected="false" aria-controls="panel-nrl" data-tab="nrl"><span class="t-ico">🏉</span> NRL Footy</button>
+        </div>
+
+        <div class="prod-panel active" id="panel-horse" role="tabpanel">
+          <div class="prose">
+            <p>FunkyIQ scans <strong>every Australian thoroughbred race</strong>, every day, and processes millions of data points to rank each field and surface the races where the model holds a genuine edge over the market. One engine drives five distinct views, each tuned for a different style of play.</p>
+
+            <h3>What the model reads</h3>
+            <ul>
+              <li><strong>Form</strong> — recent finishing positions, beaten margins, and class of racing, weighted so that a horse's latest runs count for more than its older ones.</li>
+              <li><strong>Connections</strong> — jockey and trainer records, and how particular combinations perform in comparable conditions.</li>
+              <li><strong>Breeding</strong> — pedigree signals that indicate a horse's aptitude for a distance, surface, or track condition.</li>
+              <li><strong>Race conditions</strong> — distance, track, barrier draw, and the going (track condition), which can reshape a race entirely.</li>
+              <li><strong>Market behaviour</strong> — the current price and how it's moving, used as a benchmark to measure the model against rather than a signal to follow.</li>
+            </ul>
+
+            <h3>Five views, one engine</h3>
+            <ul>
+              <li><strong>The Lounge</strong> — every Australian race today, ranked top to bottom with a win and place percentage for each runner. The foundation the other views drill into.</li>
+              <li><strong>The Edge</strong> — high-confidence picks compared directly against market odds, highlighting where the model most disagrees with the bookmakers.</li>
+              <li><strong>Hot Seat</strong> — a live race-card view sorted by jump time, built for tracking what's worth backing right now.</li>
+              <li><strong>Playbook</strong> — the day's lower-variance shortlist, distilled into a handful of concrete plays.</li>
+              <li><strong>Labs</strong> — a paper-trading sandbox that grades exotic strategies against real dividends, with a full ledger and ROI tracking.</li>
+            </ul>
+
+            <h3>Confidence tiers</h3>
+            <p>The model's top pick in each race is graded by how much win probability it carries. <strong>Premium</strong> is the rarest: strong model conviction meeting a market that's underpricing the horse. <strong>Hot</strong> covers the model's highest-conviction races, <strong>High Confidence</strong> the next band down, and <strong>Strong</strong> the broadest tier where there's a clear top pick with meaningful separation from the rest of the field.</p>
+
+            <p><a href="https://horse-racing-predictions.funkyiq.com" class="btn-primary" style="margin-top:8px;">View Horse Racing Predictions</a></p>
+          </div>
+        </div>
+
+        <div class="prod-panel" id="panel-nrl" role="tabpanel">
+          <div class="prose">
+            <p>FunkyIQ produces a <strong>match-by-match win probability for every NRL game</strong>. The engine weighs both sides of a fixture and returns a calibrated probability for each team, alongside the model's ranked call on the result.</p>
+
+            <h3>What the model reads</h3>
+            <ul>
+              <li><strong>Team form</strong> — recent results, margins, and the quality of opposition each side has faced.</li>
+              <li><strong>Head-to-head history</strong> — how these two teams have matched up, beyond raw ladder position.</li>
+              <li><strong>Venue and home ground</strong> — the measurable effect of where a match is played, including home-ground advantage.</li>
+              <li><strong>Travel and rest</strong> — the schedule around a fixture: short turnarounds, byes, and interstate travel.</li>
+              <li><strong>Team-list changes</strong> — squad and availability news that shifts a side's strength going into kickoff.</li>
+              <li><strong>Market prices</strong> — the head-to-head market, used as the benchmark the model is measured against.</li>
+            </ul>
+            <p>As with racing, each prediction is calibrated and continuously refreshed as new results come in, so the numbers reflect the current state of the competition rather than a preseason guess.</p>
+
+            <p><a href="https://nrl-footy-predictions.funkyiq.com" class="btn-primary" style="margin-top:8px;">View NRL Footy Predictions</a></p>
+          </div>
+        </div>
+      </section>
 
       <div class="stats">
         <div class="stat">
@@ -605,56 +701,6 @@
         </div>
       </section>
 
-      <!-- ─────────────  HORSE RACING  ───────────── -->
-      <section class="content" id="horse-racing">
-        <div class="section-label">Product · Live</div>
-        <div class="section-title">Horse Racing Predictions</div>
-        <div class="prose">
-          <p>FunkyIQ scans <strong>every Australian thoroughbred race</strong>, every day, and processes millions of data points to rank each field and surface the races where the model holds a genuine edge over the market. One engine drives five distinct views, each tuned for a different style of play.</p>
-
-          <h3>What the model reads</h3>
-          <ul>
-            <li><strong>Form</strong> — recent finishing positions, beaten margins, and class of racing, weighted so that a horse's latest runs count for more than its older ones.</li>
-            <li><strong>Connections</strong> — jockey and trainer records, and how particular combinations perform in comparable conditions.</li>
-            <li><strong>Breeding</strong> — pedigree signals that indicate a horse's aptitude for a distance, surface, or track condition.</li>
-            <li><strong>Race conditions</strong> — distance, track, barrier draw, and the going (track condition), which can reshape a race entirely.</li>
-            <li><strong>Market behaviour</strong> — the current price and how it's moving, used as a benchmark to measure the model against rather than a signal to follow.</li>
-          </ul>
-
-          <h3>Five views, one engine</h3>
-          <ul>
-            <li><strong>The Lounge</strong> — every Australian race today, ranked top to bottom with a win and place percentage for each runner. The foundation the other views drill into.</li>
-            <li><strong>The Edge</strong> — high-confidence picks compared directly against market odds, highlighting where the model most disagrees with the bookmakers.</li>
-            <li><strong>Hot Seat</strong> — a live race-card view sorted by jump time, built for tracking what's worth backing right now.</li>
-            <li><strong>Playbook</strong> — the day's lower-variance shortlist, distilled into a handful of concrete plays.</li>
-            <li><strong>Labs</strong> — a paper-trading sandbox that grades exotic strategies against real dividends, with a full ledger and ROI tracking.</li>
-          </ul>
-
-          <h3>Confidence tiers</h3>
-          <p>The model's top pick in each race is graded by how much win probability it carries. <strong>Premium</strong> is the rarest: strong model conviction meeting a market that's underpricing the horse. <strong>Hot</strong> covers the model's highest-conviction races, <strong>High Confidence</strong> the next band down, and <strong>Strong</strong> the broadest tier where there's a clear top pick with meaningful separation from the rest of the field.</p>
-        </div>
-      </section>
-
-      <!-- ─────────────  NRL FOOTY  ───────────── -->
-      <section class="content" id="nrl-footy">
-        <div class="section-label">Product · Live</div>
-        <div class="section-title">NRL Footy Predictions</div>
-        <div class="prose">
-          <p>FunkyIQ produces a <strong>match-by-match win probability for every NRL game</strong>. The engine weighs both sides of a fixture and returns a calibrated probability for each team, alongside the model's ranked call on the result.</p>
-
-          <h3>What the model reads</h3>
-          <ul>
-            <li><strong>Team form</strong> — recent results, margins, and the quality of opposition each side has faced.</li>
-            <li><strong>Head-to-head history</strong> — how these two teams have matched up, beyond raw ladder position.</li>
-            <li><strong>Venue and home ground</strong> — the measurable effect of where a match is played, including home-ground advantage.</li>
-            <li><strong>Travel and rest</strong> — the schedule around a fixture: short turnarounds, byes, and interstate travel.</li>
-            <li><strong>Team-list changes</strong> — squad and availability news that shifts a side's strength going into kickoff.</li>
-            <li><strong>Market prices</strong> — the head-to-head market, used as the benchmark the model is measured against.</li>
-          </ul>
-          <p>As with racing, each prediction is calibrated and continuously refreshed as new results come in, so the numbers reflect the current state of the competition rather than a preseason guess.</p>
-        </div>
-      </section>
-
       <!-- ─────────────  GLOSSARY  ───────────── -->
       <section class="content" id="glossary">
         <div class="section-label">Reference</div>
@@ -719,5 +765,21 @@
         <p>Predictions are for informational purposes only · 18+ · Gamble responsibly · 1800 858 858</p>
       </footer>
     </div>
+
+    <script>
+      document.querySelectorAll('.prod-tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var target = tab.getAttribute('data-tab');
+          document.querySelectorAll('.prod-tab').forEach(function (t) {
+            var on = t === tab;
+            t.classList.toggle('active', on);
+            t.setAttribute('aria-selected', on ? 'true' : 'false');
+          });
+          document.querySelectorAll('.prod-panel').forEach(function (p) {
+            p.classList.toggle('active', p.id === 'panel-' + target);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
