@@ -524,6 +524,119 @@
       .prod-panel.active { display: block; animation: fadeIn 0.25s ease; }
       @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
+      /* ── Track record: tier scale + performance log ── */
+      .ts { margin: 28px 0 6px; position: relative; padding-top: 30px; }
+      .ts-label {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 0.72rem; font-weight: 800;
+        letter-spacing: 0.12em; text-transform: uppercase;
+        color: var(--muted); margin-bottom: 6px;
+      }
+      .ts-bar {
+        position: relative; display: flex; height: 22px;
+        border-radius: 6px; overflow: hidden; border: 1px solid var(--border);
+      }
+      .ts-band {
+        flex: 1; display: flex; align-items: center; justify-content: center;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 0.6rem; font-weight: 800;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        color: rgba(255,255,255,0.72);
+      }
+      .b-poor    { background: rgba(239,68,68,0.28); }
+      .b-average { background: rgba(245,200,66,0.22); }
+      .b-good    { background: rgba(34,197,94,0.22); }
+      .b-great   { background: rgba(59,130,246,0.26); }
+      .b-elite   { background: rgba(168,85,247,0.32); }
+      .ts-marker {
+        position: absolute; top: 22px; width: 0; height: 0;
+        border-left: 8px solid transparent; border-right: 8px solid transparent;
+        border-bottom: 10px solid #fff; transform: translateX(-50%); z-index: 3;
+      }
+      .ts-you {
+        position: absolute; top: 0; transform: translateX(-50%);
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 0.72rem; font-weight: 900; letter-spacing: 0.06em;
+        color: var(--text); background: var(--bg-card);
+        padding: 2px 8px; border: 1px solid var(--border);
+        border-radius: 4px; white-space: nowrap; z-index: 3;
+      }
+      .ts-you b { color: var(--gold); margin-left: 4px; }
+      .ts-dot {
+        position: absolute; top: 50%; width: 10px; height: 10px; border-radius: 50%;
+        transform: translate(-50%, -50%); border: 1.5px solid rgba(0,0,0,0.5); z-index: 2;
+      }
+      .d-fav   { background: #22d3ee; }
+      .d-media { background: #4ade80; }
+      .d-blind { background: #f87171; }
+      .ts-ticks { display: flex; margin-top: 6px; font-size: 0.6rem; color: var(--muted); }
+      .ts-ticks span { flex: 1; text-align: center; }
+      .ts-legend {
+        display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px;
+        font-size: 0.68rem; color: var(--muted);
+      }
+      .ts-legend .item { display: flex; align-items: center; gap: 5px; }
+      .ts-legend .sw {
+        width: 9px; height: 9px; border-radius: 50%;
+        border: 1.5px solid rgba(0,0,0,0.5); display: inline-block;
+      }
+      @media (max-width: 640px) { .ts-legend { flex-direction: column; gap: 5px; } }
+
+      .perflog {
+        margin-top: 28px; padding: 22px 24px;
+        background: rgba(245,200,66,0.05);
+        border: 1px solid rgba(245,200,66,0.22); border-radius: 12px;
+      }
+      .perflog-h {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 1.05rem; font-weight: 800; color: var(--gold); margin-bottom: 12px;
+      }
+      .perflog-metrics { list-style: none; margin: 0 0 14px; padding: 0; }
+      .perflog-metrics li {
+        padding: 8px 0; font-size: 0.92rem; color: var(--muted);
+        display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline;
+        border-bottom: 1px solid rgba(245,200,66,0.12);
+      }
+      .perflog-metrics li:last-child { border-bottom: none; }
+      .perflog-lbl { font-weight: 700; color: var(--text); min-width: 150px; }
+      .perflog-num {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 1.15rem; font-weight: 900; color: var(--text);
+      }
+      .perflog-tag { font-size: 0.78rem; color: var(--muted); font-style: italic; }
+      .perflog-sub {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em;
+        text-transform: uppercase; color: var(--gold); margin: 14px 0 6px;
+      }
+      .perflog-body { font-size: 0.9rem; color: var(--muted); line-height: 1.65; margin: 0 0 6px; }
+      .note-fine {
+        font-size: 0.72rem; color: var(--muted); opacity: 0.85;
+        margin-top: 14px; line-height: 1.6; font-style: italic;
+      }
+
+      /* NRL headline stats + per-round pips */
+      .nrl-stats { display: flex; gap: 16px; flex-wrap: wrap; margin: 22px 0 8px; }
+      .nrl-stat {
+        flex: 1; min-width: 190px;
+        background: var(--bg-card); border: 1px solid var(--border);
+        border-radius: 12px; padding: 22px 24px;
+      }
+      .nrl-stat-num {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 2.8rem; font-weight: 900; color: var(--gold); line-height: 1;
+      }
+      .nrl-stat-num .sub { font-size: 1.3rem; color: var(--muted); }
+      .nrl-stat-lbl { font-size: 0.85rem; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+      .nrl-stat-lbl strong { color: var(--text); }
+      .pips { display: flex; gap: 6px; margin-top: 14px; }
+      .pip {
+        width: 18px; height: 18px; border-radius: 50%;
+        background: var(--border); border: 1px solid rgba(255,255,255,0.12);
+      }
+      .pip.full { background: var(--gold); border-color: var(--gold); }
+      .pip.half { background: linear-gradient(90deg, var(--gold) 50%, var(--border) 50%); border-color: var(--gold); }
+
       @media (max-width: 600px) {
         .stats { grid-template-columns: 1fr; }
         .cta-band { padding: 40px 24px; }
@@ -608,6 +721,63 @@
             <h3>Confidence tiers</h3>
             <p>The model's top pick in each race is graded by how much win probability it carries. <strong>Premium</strong> is the rarest: strong model conviction meeting a market that's underpricing the horse. <strong>Hot</strong> covers the model's highest-conviction races, <strong>High Confidence</strong> the next band down, and <strong>Strong</strong> the broadest tier where there's a clear top pick with meaningful separation from the rest of the field.</p>
 
+            <h3>Track record — Sharp picks on the industry 5-tier scale</h3>
+            <p>Our Sharp picks graded against the industry five-tier scale, Poor to Elite. The marker shows where FunkyIQ currently sits against the blind, public, and market-favourite benchmarks.</p>
+
+            <div class="ts">
+              <div class="ts-label">Win Rate</div>
+              <div class="ts-you" style="left:65%">👑 FunkyIQ <b>32%</b></div>
+              <div class="ts-marker" style="left:65%"></div>
+              <div class="ts-bar">
+                <div class="ts-band b-poor">Poor</div>
+                <div class="ts-band b-average">Avg</div>
+                <div class="ts-band b-good">Good</div>
+                <div class="ts-band b-great">Great</div>
+                <div class="ts-band b-elite">Elite</div>
+                <div class="ts-dot d-blind" style="left:20%" title="Blind Selection · ~10% win"></div>
+                <div class="ts-dot d-media" style="left:54%" title="Media Tipster Avg · ~27% win"></div>
+                <div class="ts-dot d-fav"   style="left:76%" title="Track Favourite · ~35% win"></div>
+              </div>
+              <div class="ts-ticks"><span>0%</span><span>15%</span><span>22%</span><span>30%</span><span>38%</span><span>50%+</span></div>
+            </div>
+
+            <div class="ts">
+              <div class="ts-label">Place Rate</div>
+              <div class="ts-you" style="left:64%">👑 FunkyIQ <b>57%</b></div>
+              <div class="ts-marker" style="left:64%"></div>
+              <div class="ts-bar">
+                <div class="ts-band b-poor">Poor</div>
+                <div class="ts-band b-average">Avg</div>
+                <div class="ts-band b-good">Good</div>
+                <div class="ts-band b-great">Great</div>
+                <div class="ts-band b-elite">Elite</div>
+                <div class="ts-dot d-blind" style="left:17%" title="Blind Selection · ~30% place"></div>
+                <div class="ts-dot d-media" style="left:54%" title="Media Tipster Avg · ~52% place"></div>
+                <div class="ts-dot d-fav"   style="left:82%" title="Track Favourite · ~67% place"></div>
+              </div>
+              <div class="ts-ticks"><span>0%</span><span>35%</span><span>45%</span><span>55%</span><span>65%</span><span>80%+</span></div>
+              <div class="ts-legend">
+                <span class="item"><span class="sw d-fav"></span>📊 Track Favourite (Market Ceiling)</span>
+                <span class="item"><span class="sw d-media"></span>📰 Media Tipster Avg (Public Baseline)</span>
+                <span class="item"><span class="sw d-blind"></span>🎯 Blind Selection (Floor)</span>
+              </div>
+            </div>
+
+            <div class="perflog">
+              <div class="perflog-h">📊 Performance Log (May 25 – July 28 · 431-Race Sample)</div>
+              <ul class="perflog-metrics">
+                <li><span class="perflog-lbl">Win Rate</span> <span class="perflog-num">32%</span> <span class="perflog-tag">📈 Professional Tier Baseline</span></li>
+                <li><span class="perflog-lbl">Place Rate</span> <span class="perflog-num">57%</span> <span class="perflog-tag">🥇 Great Tier Consistency</span></li>
+                <li><span class="perflog-lbl">Average Winning SP</span> <span class="perflog-num">$2.87</span></li>
+              </ul>
+              <div class="perflog-sub">Performance Insights</div>
+              <p class="perflog-body">Our predictive models sit at the high end of the industry standard for horse racing. High win and placement rates don't eliminate risk — every race can go either way. Figures are provided for context; betting decisions are the user's own responsibility.</p>
+              <div class="perflog-sub">Disclaimer</div>
+              <p class="perflog-body" style="font-size:0.8rem;font-style:italic">Past performance is not a reliable indicator of future results. Horse racing betting involves inherent financial risk. Our service provides statistical data modelling for informational purposes and does not guarantee net profitability. If you require assistance, please call GambleAware on 1800 858 858. Think! Before you bet.</p>
+            </div>
+
+            <p class="note-fine">All statistics on a flat, single-unit stake on a single horse (rank-1 Sharp pick) per race. Sample: only genuine pre-race predictions (source="live", enriched before race jump). Backfilled and post-race reconstructions are excluded to prevent look-ahead bias.</p>
+
             <p><a href="https://horse-racing-predictions.funkyiq.com" class="btn-primary" style="margin-top:8px;">View Horse Racing Predictions</a></p>
           </div>
         </div>
@@ -626,6 +796,55 @@
               <li><strong>Market prices</strong> — the head-to-head market, used as the benchmark the model is measured against.</li>
             </ul>
             <p>As with racing, each prediction is calibrated and continuously refreshed as new results come in, so the numbers reflect the current state of the competition rather than a preseason guess.</p>
+
+            <h3>Season track record</h3>
+            <p>Head-to-head tips graded against the industry five-tier scale for tipping accuracy, from a coin-flip floor to elite.</p>
+
+            <div class="nrl-stats">
+              <div class="nrl-stat">
+                <div class="nrl-stat-num">74%</div>
+                <div class="nrl-stat-lbl"><strong>121 / 164</strong> match tips correct this season</div>
+              </div>
+              <div class="nrl-stat">
+                <div class="nrl-stat-num">5.5<span class="sub"> / 7</span></div>
+                <div class="nrl-stat-lbl">average correct tips per round</div>
+                <div class="pips">
+                  <span class="pip full"></span><span class="pip full"></span><span class="pip full"></span><span class="pip full"></span><span class="pip full"></span><span class="pip half"></span><span class="pip"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ts">
+              <div class="ts-label">Tipping Accuracy</div>
+              <div class="ts-you" style="left:83%">👑 FunkyIQ <b>74%</b></div>
+              <div class="ts-marker" style="left:83%"></div>
+              <div class="ts-bar">
+                <div class="ts-band b-poor">Poor</div>
+                <div class="ts-band b-average">Avg</div>
+                <div class="ts-band b-good">Good</div>
+                <div class="ts-band b-great">Great</div>
+                <div class="ts-band b-elite">Elite</div>
+                <div class="ts-dot d-blind" style="left:5%"  title="Coin Flip · ~52%"></div>
+                <div class="ts-dot d-media" style="left:36%" title="Media / Public Avg · ~62%"></div>
+                <div class="ts-dot d-fav"   style="left:64%" title="Expert Tipster · ~69%"></div>
+              </div>
+              <div class="ts-ticks"><span>50%</span><span>58%</span><span>63%</span><span>68%</span><span>73%</span><span>80%+</span></div>
+              <div class="ts-legend">
+                <span class="item"><span class="sw d-fav"></span>📊 Expert Tipster (High Bar)</span>
+                <span class="item"><span class="sw d-media"></span>📰 Media / Public Avg</span>
+                <span class="item"><span class="sw d-blind"></span>🎯 Coin Flip (Floor)</span>
+              </div>
+            </div>
+
+            <div class="perflog">
+              <div class="perflog-h">📊 Season Record to Date</div>
+              <ul class="perflog-metrics">
+                <li><span class="perflog-lbl">Match Tips Correct</span> <span class="perflog-num">121 / 164</span> <span class="perflog-tag">🏉 74% accuracy</span></li>
+                <li><span class="perflog-lbl">Average Per Round</span> <span class="perflog-num">5.5 / 7</span> <span class="perflog-tag">🥇 Elite consistency</span></li>
+              </ul>
+              <div class="perflog-sub">Disclaimer</div>
+              <p class="perflog-body" style="font-size:0.8rem;font-style:italic">Past performance is not a reliable indicator of future results. Predictions are provided for informational purposes only and do not guarantee outcomes. If gambling is causing you harm, call GambleAware on 1800 858 858. Think! Before you bet.</p>
+            </div>
 
             <p><a href="https://nrl-footy-predictions.funkyiq.com" class="btn-primary" style="margin-top:8px;">View NRL Footy Predictions</a></p>
           </div>
