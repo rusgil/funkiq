@@ -104,13 +104,16 @@
     color:var(--gold-lt); border:1px solid var(--gold-dim); background:var(--gold-dim);
     padding:2px 6px; border-radius:5px; margin-left:8px; vertical-align:middle}
   .vert .vd{font-size:.82rem; color:var(--tx-2); margin-top:8px; line-height:1.5}
-  .vstat{display:inline-flex; align-items:baseline; gap:6px; margin-top:9px;
+  .vstat{display:flex; align-items:baseline; flex-wrap:wrap; gap:6px; margin-top:9px;
     font-family:var(--mono); font-variant-numeric:tabular-nums}
   .vstat .big{font-size:1.35rem; font-weight:700; letter-spacing:-.02em}
   .vstat .lbl{font-size:.66rem; letter-spacing:.06em; text-transform:uppercase; color:var(--tx-dim)}
   .vstat.win .big{color:var(--green-lt)}
   .vstat.nrl .big{color:#f472b6}
+  .vstat.sharp .big{color:var(--gold-lt)}
   .vstat .sep{color:var(--tx-dim); font-size:1.1rem; margin:0 2px}
+  .vstat-tag{font-family:var(--mono); font-size:.6rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--tx-dim); align-self:center; margin-left:6px}
   .vphase{display:inline-block; margin-top:9px; font-family:var(--mono); font-size:.66rem;
     letter-spacing:.06em; color:var(--tx-dim); border:1px solid var(--border); border-radius:5px; padding:3px 8px}
   .vmeta{margin-top:10px; padding-top:9px; border-top:1px solid var(--border-soft);
@@ -326,8 +329,9 @@
       <div class="vert-grid">
         <div class="vert"><span class="ve">🏇</span><div>
           <div class="vt">Horse Racing<span class="flag">Flagship</span></div>
-          <div class="vstat win"><span class="big">~30%</span><span class="lbl">win</span><span class="sep">·</span><span class="big">~58%</span><span class="lbl">place</span></div>
-          <div class="vd">Top-pick strike rate across graded races — the top-confidence tier peaks at <b style="color:var(--green-lt)">52% win</b>. The quantitative engine profiled throughout this dossier.</div>
+          <div class="vstat win"><span class="big">~28%</span><span class="lbl">win</span><span class="sep">·</span><span class="big">~58%</span><span class="lbl">place</span><span class="vstat-tag">all top picks</span></div>
+          <div class="vstat sharp"><span class="big">47%</span><span class="lbl">win</span><span class="sep">·</span><span class="big">~77%</span><span class="lbl">place</span><span class="vstat-tag">Sharp · 7-day · 81 races</span></div>
+          <div class="vd">Top-pick strike rate across graded races; the <b style="color:var(--gold-lt)">Sharp filter</b> lifts it to ~47% win / ~77% place. The quantitative engine profiled throughout this dossier.</div>
           <div class="vmeta"><b>~43k</b> LOC · <b>~2M</b> records · 229 endpoints</div>
         </div></div>
         <div class="vert"><span class="ve">🏉</span><div>
