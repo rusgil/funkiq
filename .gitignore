@@ -1,0 +1,4 @@
+backups/
+*.dump
+*.sql
+data.tar
