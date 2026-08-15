@@ -368,14 +368,14 @@
           <span class="chip"><b>automated product backlog</b></span>
           <span class="chip">one-click promote / reject</span>
           <span class="chip">refine→backtest→release gate</span>
-          <span class="chip">no unattended promotion</span>
+          <span class="chip">guardrailed auto-promotion</span>
         </div>
       </div>
 
       <div class="cap gold reveal">
         <div class="cap-top"><div class="cap-ico">📈</div>
           <h3><span class="k">Predictive Models</span>Win, place &amp; exotic models</h3></div>
-        <p>Separate win, place and exotic models over 39 engineered features — form, class, pedigree and live market microstructure — <b style="color:var(--tx)">13.6M feature values computed across 347k prediction records</b>. A Benter-style market+model blend, Harville / Plackett–Luce joint probabilities for exotics, walk-forward backtesting and sample-size-gated calibration.</p>
+        <p>Separate win, place and exotic models over 41 engineered features distilled from 60+ per-runner signals — form, class, pedigree and live market microstructure — <b style="color:var(--tx)">14M+ feature values computed across 347k prediction records</b>. A Benter-style market+model blend, Harville / Plackett–Luce joint probabilities for exotics, walk-forward backtesting and sample-size-gated calibration.</p>
         <div class="chips">
           <span class="chip"><b>39</b> features</span>
           <span class="chip"><b>13.6M</b> feature values</span>
@@ -401,7 +401,7 @@
           <span class="chip">composite odds</span>
           <span class="chip"><b>700ms → 5ms</b></span>
           <span class="chip"><b>131</b> indexes</span>
-          <span class="chip">resilient ingestion</span>
+          <span class="chip">resilient / auto-healing ingestion</span>
         </div>
       </div>
 
@@ -534,7 +534,7 @@
           <li><b>Multi-model comparison:</b> candidate models trained over different lookback windows, their outputs raced against the incumbent out-of-sample — only the strongest is put forward.</li>
           <li><b>Weekly review:</b> generates the weekly performance review and seeds follow-up tasks; a daily resolver works the queue.</li>
           <li><b>Morning report:</b> before/after win &amp; place delta — the night's improvement, in your inbox.</li>
-          <li><b>Guardrail:</b> candidates go refine → backtest → release; <b style="color:var(--tx)">no unattended promotion</b>.</li>
+          <li><b>Guardrail:</b> the strongest candidate auto-promotes to production each week — the gate is <b style="color:var(--tx)">backtest-beats-incumbent + drift detection + auto-rollback</b>, not a human click.</li>
         </ul>
       </div>
 
