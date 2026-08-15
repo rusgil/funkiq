@@ -359,7 +359,7 @@
       <div class="cap violet reveal">
         <div class="cap-top"><div class="cap-ico">🤖</div>
           <h3><span class="k">Agentic AI</span>Autonomous operations</h3></div>
-        <p>The platform doesn't just run — it operates itself. In-process schedulers and scheduled cloud AI agents handle enrichment, pre-warming, snapshotting, calibration and retraining, then verify their own fixes. Research agents feed an <b style="color:var(--tx)">automated product backlog</b>: every item is hypothesised, built, tested and proven out-of-sample — then surfaced for <b style="color:var(--tx)">one-click promote or reject</b> to production, with additional auto-deploy when within guardrail parameters.</p>
+        <p>The platform doesn't just run — it operates itself. In-process schedulers and scheduled cloud AI agents handle enrichment, pre-warming, snapshotting, calibration and retraining, then verify their own fixes. Research agents feed an <b style="color:var(--tx)">automated product backlog</b>: every item is hypothesised, built, tested and proven out-of-sample — then <b style="color:var(--tx)">auto-deployed to production when it clears the guardrails</b> — with a human one-click promote/reject available as the override.</p>
         <div class="proc reveal">hypothesise <span class="ar">→</span> build <span class="ar">→</span> test <span class="ar">→</span> prove <span class="ar">→</span> <b class="ok">✓ promote</b> <span class="sl">/</span> <b class="no">✗ reject</b></div>
         <div class="chips">
           <span class="chip"><b>29</b> cron jobs</span>
@@ -513,11 +513,11 @@
       </div>
       <div class="agent lab reveal">
         <div class="ah"><span class="emo">🔥</span><div><div class="an">The Crucible</div><div class="ar">Hypothesis · solver</div></div></div>
-        <p>Takes each hypothesis and <b style="color:var(--tx)">burns it down</b> — building the out-of-sample backtest, running it against real history, and returning a hard verdict: ship it, or kill it.</p>
+        <p>Takes each hypothesis and <b style="color:var(--tx)">burns it down</b> — building the out-of-sample backtest, running it against real history, and returning a hard verdict: ship it, or reject it.</p>
         <ul>
           <li><b>Builds:</b> the walk-forward, no-leak experiment for the claim.</li>
           <li><b>Tests:</b> against thousands of settled results — adversarially, trying to falsify.</li>
-          <li><b>Verdicts:</b> survivors go to the release gate; the rest are logged and killed.</li>
+          <li><b>Verdicts:</b> survivors go to the release gate; the rest are logged and rejected.</li>
         </ul>
       </div>
     </div>
@@ -604,7 +604,7 @@
   <!-- ── LABS ── -->
   <section id="labs">
     <div class="sec-head reveal"><span class="sec-idx">04</span><h2>Labs · continuous research</h2></div>
-    <p class="sec-tag reveal">A working model is never finished. The Labs are where agentic AI is applied to every edge being hypothesised, tested to destruction against real outcomes, and either shipped or killed — with the discipline to kill far more than ships.</p>
+    <p class="sec-tag reveal">A working model is never finished. The Labs are where agentic AI is applied to every edge being hypothesised, tested to destruction against real outcomes, and either shipped or rejected — with the discipline to reject far more than ships.</p>
 
     <div class="grid">
       <div class="cap blue reveal">
@@ -622,7 +622,7 @@
       </div>
     </div>
 
-    <div class="kill-note reveal"><b>The discipline is in the killing.</b> Collateral-form Elo, exotic-spread structures, blind-shrinkage — all hypothesised, fully backtested, and <b>rejected</b> when the out-of-sample lift wasn't there. Intellectual honesty over hype: most good-sounding edges are noise, and the Labs are built to prove it.</div>
+    <div class="kill-note reveal"><b>The discipline is in the rejection.</b> Collateral-form Elo, exotic-spread structures, blind-shrinkage — all hypothesised, fully backtested, and <b>rejected</b> when the out-of-sample lift wasn't there. Intellectual honesty over hype: most good-sounding edges are noise, and the Labs are built to prove it.</div>
 
     <div class="lab-loop reveal">This loop runs itself — <b>The Alchemist</b> dreams up an edge, <b>The Crucible</b> tries to destroy it, and only what survives ships. Meet them both in the agent fleet above. <span class="roadmap-tag">In design · shipping next</span></div>
   </section>
@@ -697,7 +697,7 @@
       </div></div>
       <div class="principle reveal"><div class="pn">03</div><div>
         <div class="pt">Prove it out-of-sample</div>
-        <div class="pd">Every claim is walk-forward tested against real outcomes. Kill more than you ship.</div>
+        <div class="pd">Every claim is walk-forward tested against real outcomes. Reject more than you ship.</div>
       </div></div>
       <div class="principle reveal"><div class="pn">04</div><div>
         <div class="pt">AI-First ModelOps</div>
