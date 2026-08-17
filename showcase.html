@@ -329,9 +329,9 @@
       <div class="vert-grid">
         <div class="vert"><span class="ve">🏇</span><div>
           <div class="vt">Horse Racing<span class="flag">Flagship</span></div>
-          <div class="vstat sharp"><span class="big">34%</span><span class="lbl">win</span><span class="sep">·</span><span class="big">59%</span><span class="lbl">place</span><span class="vstat-tag">Sharp filter · flagship · 500-race track record</span></div>
+          <div class="vstat sharp"><span class="big" data-heal="win">34%</span><span class="lbl">win</span><span class="sep">·</span><span class="big" data-heal="place">59%</span><span class="lbl">place</span><span class="vstat-tag">Sharp filter · flagship · 500-race track record</span></div>
           <div class="vstat win"><span class="big">47%</span><span class="lbl">win</span><span class="sep">·</span><span class="big">~77%</span><span class="lbl">place</span><span class="vstat-tag">recent form · last 7 days · 81 races</span></div>
-          <div class="vd">The <b style="color:var(--violet-lt)">Sharp filter</b> is the flagship signal — its highest-conviction, clear-favourite picks hold a <b>34% win / 59% place</b> track record across 500 races, and have run even hotter lately (<b>~47% win / ~77% place</b> over the last 7 days). The quantitative engine profiled throughout this dossier.</div>
+          <div class="vd">The <b style="color:var(--violet-lt)">Sharp filter</b> is the flagship signal — its highest-conviction, clear-favourite picks hold a <b><span data-heal="win">34%</span> win / <span data-heal="place">59%</span> place</b> track record across 500 races, and have run even hotter lately (<b>~47% win / ~77% place</b> over the last 7 days). The quantitative engine profiled throughout this dossier.</div>
           <div class="vmeta"><b>~43k</b> LOC · <b>~2M</b> records · 229 endpoints</div>
         </div></div>
         <div class="vert"><span class="ve">🏉</span><div>
@@ -775,6 +775,23 @@
     io2.observe(ticker);
   } else { fire(); }
 })();
+</script>
+
+<script>
+  // Self-heal the Sharp track-record numbers from the single canonical source
+  // (/api/performance/tier-grade/published) so the hardcoded values can't drift.
+  // Fails silent — the static numbers stand if the fetch fails.
+  (function () {
+    function setTxt(sel, val) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = val; }); }
+    fetch('https://api.funkyiq.com/api/performance/tier-grade/published')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        var p = d && d.published; if (!p) return;
+        if (p.win_pct != null) setTxt('[data-heal="win"]', Math.round(p.win_pct) + '%');
+        if (p.place_pct != null) setTxt('[data-heal="place"]', Math.round(p.place_pct) + '%');
+      })
+      .catch(function () {});
+  })();
 </script>
 
 </body>

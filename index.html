@@ -704,8 +704,8 @@
 
             <div class="ts">
               <div class="ts-label">Win Rate</div>
-              <div class="ts-you" style="left:70%">👑 FunkyIQ <b>34%</b></div>
-              <div class="ts-marker" style="left:70%"></div>
+              <div class="ts-you" data-heal-marker="win" style="left:70%">👑 FunkyIQ <b data-heal="win">34%</b></div>
+              <div class="ts-marker" data-heal-marker="win" style="left:70%"></div>
               <div class="ts-bar">
                 <div class="ts-band b-poor">Poor</div>
                 <div class="ts-band b-average">Avg</div>
@@ -721,8 +721,8 @@
 
             <div class="ts">
               <div class="ts-label">Place Rate</div>
-              <div class="ts-you" style="left:69%">👑 FunkyIQ <b>59%</b></div>
-              <div class="ts-marker" style="left:69%"></div>
+              <div class="ts-you" data-heal-marker="place" style="left:69%">👑 FunkyIQ <b data-heal="place">59%</b></div>
+              <div class="ts-marker" data-heal-marker="place" style="left:69%"></div>
               <div class="ts-bar">
                 <div class="ts-band b-poor">Poor</div>
                 <div class="ts-band b-average">Avg</div>
@@ -742,11 +742,11 @@
             </div>
 
             <div class="perflog">
-              <div class="perflog-h">Performance log · Jun 19 – Aug 15 · 500-race sample</div>
+              <div class="perflog-h">Performance log · <span data-heal="window">Jun 19 – Aug 15</span> · <span data-heal="races">500-race</span> sample</div>
               <ul class="perflog-metrics">
-                <li><span class="perflog-lbl">Win Rate</span> <span class="perflog-num">34%</span> <span class="perflog-tag">professional-tier baseline</span></li>
-                <li><span class="perflog-lbl">Place Rate</span> <span class="perflog-num">59%</span> <span class="perflog-tag">great-tier consistency</span></li>
-                <li><span class="perflog-lbl">Average Winning SP</span> <span class="perflog-num">$2.57</span></li>
+                <li><span class="perflog-lbl">Win Rate</span> <span class="perflog-num" data-heal="win">34%</span> <span class="perflog-tag">professional-tier baseline</span></li>
+                <li><span class="perflog-lbl">Place Rate</span> <span class="perflog-num" data-heal="place">59%</span> <span class="perflog-tag">great-tier consistency</span></li>
+                <li><span class="perflog-lbl">Average Winning SP</span> <span class="perflog-num" data-heal="sp">$2.57</span></li>
               </ul>
               <div class="perflog-sub">Performance Insights</div>
               <p class="perflog-body">Our predictive models sit at the high end of the industry standard for horse racing. High win and placement rates don't eliminate risk — every race can go either way. Figures are provided for context; betting decisions are the user's own responsibility.</p>
@@ -957,6 +957,34 @@
           });
         });
       });
+    </script>
+    <script>
+      // Self-heal the Sharp track-record numbers from the single canonical source
+      // (/api/performance/tier-grade/published) so the hardcoded values above can
+      // never silently drift. Fails silent — the static numbers stand if the
+      // fetch fails, so a crawler and an offline visitor always see a real figure.
+      (function () {
+        var API = 'https://api.funkyiq.com';
+        var WIN_TICKS = [0, 15, 22, 30, 38, 50], PLC_TICKS = [0, 35, 45, 55, 65, 80], STEP = 20;
+        function pos(v, t) {
+          for (var i = 1; i < t.length; i++) { if (v <= t[i]) { return Math.min(100, (i - 1) * STEP + (v - t[i - 1]) / (t[i] - t[i - 1]) * STEP); } }
+          return 100;
+        }
+        function setTxt(sel, val) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = val; }); }
+        function setLeft(sel, val) { document.querySelectorAll(sel).forEach(function (el) { el.style.left = val; }); }
+        function fmtD(iso) { try { return new Date(iso + 'T12:00:00').toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }); } catch (e) { return null; } }
+        fetch(API + '/api/performance/tier-grade/published')
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (d) {
+            var p = d && d.published; if (!p) return;
+            if (p.win_pct != null) { setTxt('[data-heal="win"]', Math.round(p.win_pct) + '%'); setLeft('[data-heal-marker="win"]', pos(p.win_pct, WIN_TICKS) + '%'); }
+            if (p.place_pct != null) { setTxt('[data-heal="place"]', Math.round(p.place_pct) + '%'); setLeft('[data-heal-marker="place"]', pos(p.place_pct, PLC_TICKS) + '%'); }
+            if (p.mean_winning_sp != null) setTxt('[data-heal="sp"]', '$' + (+p.mean_winning_sp).toFixed(2));
+            if (p.races != null) setTxt('[data-heal="races"]', p.races + '-race');
+            if (p.earliest_race_date && p.latest_race_date) { var a = fmtD(p.earliest_race_date), b = fmtD(p.latest_race_date); if (a && b) setTxt('[data-heal="window"]', a + ' – ' + b); }
+          })
+          .catch(function () {});
+      })();
     </script>
   </body>
 </html>
