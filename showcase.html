@@ -434,7 +434,7 @@
       <div class="cap gold reveal">
         <div class="cap-top"><div class="cap-ico">☁️</div>
           <h3><span class="k">Infra &amp; CI/CD</span>Infrastructure as code</h3></div>
-        <p>Backend on Railway (managed Postgres), three globally-edged frontends on Vercel, a Terraform-managed reverse-proxy tier on its own cloud host with Caddy/TLS — all wired under a self-registered domain, with DNS routing the API host and a subdomain per product. Static UI served from a global edge CDN. Push-to-deploy continuous delivery with pre-deploy compile &amp; lint gates. 12-factor throughout.</p>
+        <p>Backend on Railway (managed Postgres), three globally-edged frontends on Vercel, a Terraform-managed reverse-proxy tier on its own cloud host with Caddy/TLS — all wired under a self-registered domain, with DNS routing the API host and a subdomain per product. Static UI served from a global edge CDN. Push-to-deploy continuous delivery with pre-deploy compile &amp; lint gates. Config-driven and stateless throughout.</p>
         <div class="chips">
           <span class="chip">Railway · Vercel · Hetzner</span>
           <span class="chip">domain + DNS</span>
@@ -444,7 +444,7 @@
           <span class="chip">TTL response cache</span>
           <span class="chip">per-caller rate limit</span>
           <span class="chip">push-to-deploy</span>
-          <span class="chip">12-factor config</span>
+          <span class="chip">env-driven config</span>
         </div>
       </div>
     </div>
@@ -662,7 +662,7 @@
   <!-- ── GLOBAL HA ── -->
   <section id="ha">
     <div class="sec-head reveal"><span class="sec-idx">06</span><h2>Scaling it worldwide</h2></div>
-    <p class="sec-tag reveal">Because the system is stateless, 12-factor and already infrastructure-as-code, going globally highly-available is a <b style="color:var(--tx)">replication exercise, not a rewrite</b>. Here's the honest tier-by-tier path.</p>
+    <p class="sec-tag reveal">Because the system is stateless, config-driven and already infrastructure-as-code, going globally highly-available is a <b style="color:var(--tx)">replication exercise, not a rewrite</b>. Here's the honest tier-by-tier path.</p>
 
     <div class="ha-wrap reveal">
       <table>
@@ -673,7 +673,7 @@
           <tr><td>Database</td><td>Managed Postgres, single primary</td><td>Managed read-replicas + regional failover</td><td><span class="lift med">low–med</span></td></tr>
           <tr><td>Data proxy</td><td>Terraform module, one region</td><td><span class="num">terraform apply</span> per region — module is already parameterised</td><td><span class="lift low">low</span></td></tr>
           <tr><td>Orchestration</td><td>In-process scheduler</td><td>Leader-elected / external scheduler across nodes</td><td><span class="lift med">med</span></td></tr>
-          <tr><td>Config &amp; secrets</td><td>Env-driven, 12-factor</td><td>Drops into any region unchanged</td><td><span class="lift done">✓ ready</span></td></tr>
+          <tr><td>Config &amp; secrets</td><td>Env-driven</td><td>Drops into any region unchanged</td><td><span class="lift done">✓ ready</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -719,7 +719,7 @@
       <div class="comp-i reveal"><div class="ct">Frontend / UX</div><div class="cd">Responsive, adaptive, zero-framework UIs — data-dense, theme-aware, mobile → desktop.</div></div>
       <div class="comp-i reveal"><div class="ct">Data engineering</div><div class="cd">Multi-source ingestion, reconciliation, resilient scraping, 60-table schema.</div></div>
       <div class="comp-i reveal"><div class="ct">Security</div><div class="cd">Red/blue automation, integrity guarantees, secret hygiene, threat modelling.</div></div>
-      <div class="comp-i reveal"><div class="ct">DevOps / IaC</div><div class="cd">Terraform, multi-cloud, push-to-deploy CD, 12-factor, HA-ready architecture.</div></div>
+      <div class="comp-i reveal"><div class="ct">DevOps / IaC</div><div class="cd">Terraform, multi-cloud, push-to-deploy CD, cloud-native, HA-ready architecture.</div></div>
     </div>
   </section>
 
