@@ -578,7 +578,7 @@
         <ul>
           <li><b>Continual vulnerability scanning:</b> every night sweeps the whole surface fresh — nothing is assumed still-safe because it passed yesterday.</li>
           <li><b>Always learning:</b> pulls the latest security advisories (CVE/NVD, CISA KEV and GHSA) and cross-checks them against the live dependency versions — new threats become new checks automatically.</li>
-          <li><b>Static review:</b> SQLi trace-to-source, RCE/deser sinks, SSRF, XSS, secret scanning — each confirmed class becomes a permanent regression check.</li>
+          <li><b>Static review:</b> traces SQL injection to its source, and hunts remote code execution and unsafe deserialization, server-side request forgery (SSRF), cross-site scripting (XSS) and leaked secrets — each confirmed class becomes a permanent regression check.</li>
           <li><b>Probes:</b> OWASP Web + API Top 10 — read-only, rate-limited, single benign proof.</li>
           <li><b>Guardrails:</b> allowlisted scope, ≤30 req/min, halt-on-critical, secrets masked.</li>
         </ul>
