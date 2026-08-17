@@ -435,11 +435,11 @@
       <div class="cap gold reveal">
         <div class="cap-top"><div class="cap-ico">☁️</div>
           <h3><span class="k">Infra &amp; CI/CD</span>Infrastructure as code</h3></div>
-        <p>Backend on Railway (managed Postgres), three globally-edged frontends on Vercel, a Terraform-managed reverse-proxy tier on its own cloud host with Caddy/TLS — all wired under a self-registered domain, with DNS routing the apex, the API host and a subdomain per vertical. Static UI served from a global edge CDN, hot API payloads pre-warmed into a TTL response cache with per-caller rate limiting — so a traffic spike is absorbed at the edge and the model &amp; database tier only ever sees cache-miss traffic. Push-to-deploy continuous delivery with pre-deploy compile &amp; lint gates. 12-factor throughout.</p>
+        <p>Backend on Railway (managed Postgres), three globally-edged frontends on Vercel, a Terraform-managed reverse-proxy tier on its own cloud host with Caddy/TLS — all wired under a self-registered domain, with DNS routing the root domain, the API host and a subdomain per product. Static UI served from a global edge CDN, hot API payloads pre-warmed into a TTL response cache with per-caller rate limiting — so a traffic spike is absorbed at the edge and the model &amp; database tier only ever sees cache-miss traffic. Push-to-deploy continuous delivery with pre-deploy compile &amp; lint gates. 12-factor throughout.</p>
         <div class="chips">
           <span class="chip">Railway · Vercel · Hetzner</span>
           <span class="chip">domain + DNS</span>
-          <span class="chip">apex + subdomains</span>
+          <span class="chip">root domain + subdomains</span>
           <span class="chip"><b>2</b> Terraform modules</span>
           <span class="chip">Caddy / auto-TLS</span>
           <span class="chip">edge CDN cache</span>
