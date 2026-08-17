@@ -830,7 +830,7 @@
         </div>
       </section>
 
-      <div class="stats">
+      <div class="stats" id="statsBand">
         <div class="stat">
           <div class="stat-value">30M+</div>
           <div class="stat-label">Data Points Processed</div>
@@ -959,6 +959,30 @@
     </div>
 
     <script>
+      // The stats band is code-specific — swap it with the active product tab so
+      // NRL never shows the horse-racing figures ("Every AU race", "per runner").
+      // NRL values come straight from the published NRL description above — no
+      // invented numbers.
+      var STAT_SETS = {
+        horse: [
+          ['30M+', 'Data Points Processed'],
+          ['Every AU race', 'Rated every day'],
+          ['25+', 'Signals weighed per runner'],
+        ],
+        nrl: [
+          ['Every game', 'NRL match rated'],
+          ['Both sides', 'Win probability per team'],
+          ['4 signals', 'Form · H2H · venue · team news'],
+        ],
+      };
+      function renderStats(tab) {
+        var band = document.getElementById('statsBand');
+        if (!band) return;
+        var set = STAT_SETS[tab] || STAT_SETS.horse;
+        band.innerHTML = set.map(function (s) {
+          return '<div class="stat"><div class="stat-value">' + s[0] + '</div><div class="stat-label">' + s[1] + '</div></div>';
+        }).join('');
+      }
       document.querySelectorAll('.prod-tab').forEach(function (tab) {
         tab.addEventListener('click', function () {
           var target = tab.getAttribute('data-tab');
@@ -970,6 +994,7 @@
           document.querySelectorAll('.prod-panel').forEach(function (p) {
             p.classList.toggle('active', p.id === 'panel-' + target);
           });
+          renderStats(target);
         });
       });
     </script>
